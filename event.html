@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event handler</title>
+  </head>
+  <body>
+    <h1 id="default">Default clicked</h1>
+    <h1 id="text">Default Text</h1>
+    <p id="defaultInputText">default Input text</p>
+    <input id="input" type="text" />
+    <button id="updateBtn">Update</button>
+    <br />
+    <button onclick="btn()">Button handler was clicked</button>
+    <br />
+    <button id="eventListner">handle event Lister</button>
+    <script>
+      function btn() {
+        let btn = document.getElementById("default");
+        btn.innerText = "handle by function attached by on click";
+      }
+
+      document.getElementById(
+        "eventListner",
+        addEventListener("click", function () {
+          const text = document.getElementById("text");
+          text.innerText = "text update by ad evenListner";
+        })
+      );
+      document
+        .getElementById("updateBtn")
+        .addEventListener("click", function () {
+          const input = document.getElementById("input");
+          const inputText = input.value;
+
+          const p = document.getElementById("defaultInputText");
+          p.innerText = inputText;
+          input.value = "";
+        });
+    </script>
+    <script src="event.js"></script>
+  </body>
+</html>
